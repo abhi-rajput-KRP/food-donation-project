@@ -12,8 +12,8 @@ __pycache__/
 *.ipynb_checkpoints
 
 # Model files (regenerate locally)
-xgb_foodrisk_model.json
-*.json  # Add Firebase creds if present
+# xgb_foodrisk_model.json
+# *.json  # Add Firebase creds if present
 
 # OS/Editor
 .DS_Store
