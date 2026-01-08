@@ -3,6 +3,7 @@ from sklearn.preprocessing import StandardScaler
 from xgboost import XGBClassifier
 
 model = XGBClassifier()
+model._estimator_type = "classifier"
 model.load_model("xgb_foodrisk_model.json") 
 
 def risk(temp,hrs,ft_array):

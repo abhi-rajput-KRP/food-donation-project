@@ -9,17 +9,20 @@ from risk_calculation import risk
 app = Flask(__name__)
 
 model = XGBClassifier()
+model._estimator_type = "classifier"
 model.load_model("xgb_foodrisk_model.json") 
 
-cred = credentials.Certificate("food-donation-app-3ce68-firebase-adminsdk-fbsvc-60a6137514.json")
-firebase_admin.initialize_app(cred)
-db = firestore.client() 
+# cred = credentials.Certificate("food-donation-app-3ce68-firebase-adminsdk-fbsvc-60a6137514.json")
+# firebase_admin.initialize_app(cred)
+# db = firestore.client() 
 
-
-
-@app.route('/', methods=['GET'])  # ADD HOME ROUTE
+@app.route('/',methods=['GET'])
 def home():
     return render_template('index.html')
+
+@app.route('/donor', methods=['GET'])  # ADD HOME ROUTE
+def form():
+    return render_template('form.html')
 
 @app.route('/post', methods=['POST'])   #**THEN**: JS calls /post (saves to Firebase)
 def post_food():
